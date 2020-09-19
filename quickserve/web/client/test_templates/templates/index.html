@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sketch Yourself!</title>
+        <link rel="icon" type="image/png" href="{{url_for('static', filename='assets/favicon.ico')}}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" type='text/css' href="{{url_for('static', filename='css/index.css')}}"></link>
+    </head>
+
+    <body>
+        <div id="header">
+            <h2>Image 2 Sketch</h2>
+            <h4>Convert Your Potraits to Sketches!</h4>
+        </div>
+        <hr>
+        <div id="filesubmit">
+            <input type="file" class="file-select" accept="image/*" onchange="handleChange(this)"/>
+            <button class="file-submit">submit</button>
+            <img id="input-image" height="256" width="256" src="{{url_for('static', filename='assets/image-placeholder.jpg')}}">
+            <img id="output-image" height="256" width="256" src="{{url_for('static', filename='assets/image-placeholder.jpg')}}">
+        </div>
+
+    </body>
+    <script type="text/javascript" src="{{url_for('static', filename='js/index.js')}}"></script>
+</html>
