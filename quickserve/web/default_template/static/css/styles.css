@@ -54,6 +54,11 @@ h1 {
     border-radius: 5px 5px 5px 5px;
 }
 
+.yellowbtn:hover {
+    background-color: #dfb200;
+    color: black;
+}
+
 .optbtn {
     margin: auto;
     height: 140px;
@@ -65,17 +70,14 @@ h1 {
     align-items: center;
 }
 
-.yellowbtn:hover {
-    background-color: #dfb200;
-    color: black;
-}
+
 
 .pannaimage {
     width: 300px;
     height: 400px;
 }
 
-@media (max-width:750px) {
+@media (max-width:768px) {
     .pannaimage {
         display: block;
         margin-left: auto;
@@ -85,10 +87,13 @@ h1 {
     .hello {
         text-align: center;
     }
+
+   
+
 }
 
 #footer {
-    height: 100%;
+
     width: 100%;
     background-color: #2B3038;
     color: #ffffff;
