@@ -1,0 +1,43 @@
+#input-image {
+    position: relative;
+    top: 140px;
+    left: -150px;
+}
+
+#output-image {
+    position: relative;
+    top: 140px;
+}
+
+#filesubmit {
+    position: absolute;
+    align-content: center;
+}
+
+#header {
+    height: 100%;
+    position: relative;
+    background-color: cyan;
+}
+
+body{
+    background-color: cyan  ;
+}
+.file-select {
+    position: relative;
+    bottom: 200px;
+    left: 170px;
+}
+
+.file-submit {
+    position: relative;
+    bottom: 200px;
+    left:150px
+}
+
+h2 {
+    background-color: cyan;
+}
+h4 {
+    background-color: cyan;
+}

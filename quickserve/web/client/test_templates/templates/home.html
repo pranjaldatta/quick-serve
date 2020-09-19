@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sketch Yourself!</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/home.css') }}">
+</head>
+<body>
+    <div class="uploadWrapper">
+        <form id="imageUploadForm" class="imageUploadForm">
+          <span class="helpText" id="helpText">Upload an image</span>
+          <input type='file' id="file" class="uploadButton" accept="image/*" />
+          <div id="uploadedImg" class="uploadedImg">
+            <span class="unveil"></span>
+          </div>
+          <span class="pickFile">
+            <a href="#" class="pickFileButton">Pick file</a>
+          </span>
+        </form>
+      </div>
+</body>
+<!-- <script src="{{ url_for('static', filename='js/home.js') }}"></script> -->
+</html>
