@@ -1,3 +1,14 @@
+function ShowAndHide() {
+    var x = document.getElementById('dragsection');
+    if (x.style.display == 'none') {
+        x.style.display = 'block';
+
+    } else {
+        x.style.display = 'none';
+    }
+}
+
+
 document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
     const dropZoneElement = inputElement.closest(".drop-zone");
 
@@ -36,7 +47,7 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
 });
 
 /**
- * Updates the thumbnail on a drop zone element.
+ * 
  *
  * @param {HTMLElement} dropZoneElement
  * @param {File} file
@@ -44,12 +55,12 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
 function updateThumbnail(dropZoneElement, file) {
     let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
 
-    // First time - remove the prompt
+ 
     if (dropZoneElement.querySelector(".drop-zone__prompt")) {
         dropZoneElement.querySelector(".drop-zone__prompt").remove();
     }
 
-    // First time - there is no thumbnail element, so lets create it
+  
     if (!thumbnailElement) {
         thumbnailElement = document.createElement("div");
         thumbnailElement.classList.add("drop-zone__thumb");
@@ -58,7 +69,6 @@ function updateThumbnail(dropZoneElement, file) {
 
     thumbnailElement.dataset.label = file.name;
 
-    // Show thumbnail for image files
     if (file.type.startsWith("image/")) {
         const reader = new FileReader();
 
@@ -71,11 +81,7 @@ function updateThumbnail(dropZoneElement, file) {
     }
 }
 
-
-
-
-
-// BASE64 ENCODE
+//base64
 var handleFileSelect = function(evt) {
     var files = evt.target.files;
     var file = files[0];
@@ -86,7 +92,7 @@ var handleFileSelect = function(evt) {
         reader.onload = function(readerEvt) {
             var binaryString = readerEvt.target.result;
             console.log(btoa(binaryString));
-            // document.getElementById("base64textarea").value = btoa(binaryString);
+          
         };
 
         reader.readAsBinaryString(file);
