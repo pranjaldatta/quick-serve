@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
+      routes: {
+        'upload': (context) => Upload(),
+      },
       home: MyApp(),
     ));
 
@@ -61,5 +64,43 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
     );
+  }
+}
+
+class Upload extends StatefulWidget {
+  @override
+  _UploadState createState() => _UploadState();
+}
+
+class _UploadState extends State<Upload> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Color.fromRGBO(32, 36, 42, 1),
+        body: Container(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            FloatingActionButton(
+              heroTag: null,
+              backgroundColor: Color.fromRGBO(254, 211, 44, 1),
+              onPressed: () {},
+              child: Icon(
+                Icons.photo_camera,
+                color: Colors.black,
+              ),
+            ),
+            SizedBox(height: 10),
+            FloatingActionButton(
+              heroTag: null,
+              backgroundColor: Color.fromRGBO(254, 211, 44, 1),
+              onPressed: () {},
+              child: Icon(
+                Icons.image,
+                color: Colors.black,
+              ),
+            ),
+          ],
+        )));
   }
 }
