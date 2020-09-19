@@ -2,13 +2,15 @@ body{
     background-color: #20242a; 
 }
 
+
+
 .container-fluid{
     padding: 2% 15%;
 }
 
 #title{
     font-family: 'roboto', sans-serif; 
-    padding-bottom: 12%;
+    padding-bottom: 10%;
 }
 
 h1{
@@ -55,11 +57,21 @@ h1{
     padding: 10px 30px;
     margin-top: 5%;
     border-radius: 5px 5px 5px 5px;
+    
+}
 
-   
+.optbtn{
+    margin:auto;
+    height: 140px;
+    width: 350px;
+    /* margin-top: 6%;
+    margin-right: 5%; */
+    padding: 0px;
+    font-size: 35px;
+    align-items: center;
 }
   
-  .yellowbtn:hover {
+.yellowbtn:hover {
     background-color: #dfb200; 
     color: black;
     
@@ -69,4 +81,34 @@ h1{
     width: 300px;
     height: 400px;
 }
+
+@media (max-width:750px){
+ .pannaimage{
+ display: block;
+  margin-left: auto;
+ margin-right: auto;
+  margin-top: 30px;
+  }
+        .hello{
+text-align: center;
+        }
+}
      
+
+    #footer{
+        height: 100%;
+        width: 100%;
+        background-color: #2B3038;
+        color:#ffffff;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 600;
+        padding: 5% 8%;
+        margin-top: 5px;
+    }
+
+    .icon-last{
+        font-size: 30px;
+      padding: 0% 1%;
+    }
+    
