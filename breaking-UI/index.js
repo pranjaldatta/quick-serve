@@ -1,5 +1,9 @@
-var base64 = "xxx"
+// $("#mydrag").click(function () {
+//     $("#draghere").modal('show');
+// })
 
+var binaryString = null
+var output = null
 function ShowAndHide() {
     var x = document.getElementById('dragsection');
     if (x.style.display == 'none') {
@@ -9,6 +13,7 @@ function ShowAndHide() {
         x.style.display = 'none';
     }
 }
+
 
 
 document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
@@ -49,7 +54,7 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
 });
 
 /**
- * 
+ * Updates the thumbnail on a drop zone element.
  *
  * @param {HTMLElement} dropZoneElement
  * @param {File} file
@@ -57,12 +62,12 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
 function updateThumbnail(dropZoneElement, file) {
     let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
 
- 
+    // First time - remove the prompt
     if (dropZoneElement.querySelector(".drop-zone__prompt")) {
         dropZoneElement.querySelector(".drop-zone__prompt").remove();
     }
 
-  
+    // First time - there is no thumbnail element, so lets create it
     if (!thumbnailElement) {
         thumbnailElement = document.createElement("div");
         thumbnailElement.classList.add("drop-zone__thumb");
@@ -71,20 +76,19 @@ function updateThumbnail(dropZoneElement, file) {
 
     thumbnailElement.dataset.label = file.name;
 
+    // Show thumbnail for image files
     if (file.type.startsWith("image/")) {
         const reader = new FileReader();
 
         reader.readAsDataURL(file);
         reader.onload = () => {
-            //console.log(reader.result)
             thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
         };
     } else {
         thumbnailElement.style.backgroundImage = null;
     }
 }
-
-//base64
+// BASE64 ENCODING
 var handleFileSelect = function(evt) {
     var files = evt.target.files;
     var file = files[0];
@@ -93,9 +97,10 @@ var handleFileSelect = function(evt) {
         var reader = new FileReader();
 
         reader.onload = function(readerEvt) {
-            var binaryString = readerEvt.target.result;
+         binaryString = readerEvt.target.result;
+            //console.log(btoa(binaryString));//
             base64 = btoa(binaryString)
-          
+            // document.getElementById("base64textarea").value = btoa(binaryString);
         };
 
         reader.readAsBinaryString(file);
@@ -108,31 +113,26 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
     alert('The File APIs are not fully supported in this browser.');
 }
 
-const url = "http://127.0.0.1:5001/infer"
-$("#yellow-btn").click(function(){
-    outelem = $("#output-img")
-    let formData = new FormData()
-    
-    formData.append('image', base64)
-    for (var key of formData.entries()) {
-        console.log(key[0] + ', ' + key[1]);
-    }
-
+const url ="http://127.0.0.1:5001/infer"
+//var base64 = binaryString//
+var return_string
+$("#submit-btn").click(function(){
+    console.log("clicked", base64)
+    output = $(".outputbox")
     $.ajax({
         url: url,
-        type: 'POST',
-        data: formData,
-        cache: false,
-        processData: false,
-        contentType: false,
-        error: function(err) {
-            console.log("oops!: ", err)
+        data: "hello world",
+        type:"POST",
+        contentType:false,
+        processData:false,
+        cache:false,
+        error:function(err){
+            console.log("Oops!", err);
         },
-        success: function(data) {
-            console.log("b64 successfully received!")
-            data = data.split('\'')[1]
-            outelem.attr("class", "")
-            outelem.attr("src", 'data:image/jpeg;base64,'+data)
-        }
-    })
-})
+        success:function(response){
+            return_string = response,
+            console.log(response);
+            output.attr('src' , 'data:image/jpeg;base64,' +response);
+        },
+    });
+});
