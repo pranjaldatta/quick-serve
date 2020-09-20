@@ -6,5 +6,5 @@ def action(x):
     img = Image.open("demo/cat.jpeg")
     return img
 
-sw = ServeWeb("image", action=action, template="default_template", action_input_type="PIL")
+sw = ServeWeb("image", action=action, template="test_template", action_input_type="PIL")
 sw.serve(debug=True)

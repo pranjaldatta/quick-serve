@@ -1,5 +1,5 @@
 include quickserve/web/client/default_template/templates/*.html
-include quickserve/web/client/default_template/static/assets/images/*.png
+include quickserve/web/client/default_template/static/assets/*.png
 include quickserve/web/client/default_template/static/css/*.css
 include quickserve/web/client/default_template/static/js/*.js
 
