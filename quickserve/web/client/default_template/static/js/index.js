@@ -1,3 +1,5 @@
+var base64 = "xxx"
+
 function ShowAndHide() {
     var x = document.getElementById('dragsection');
     if (x.style.display == 'none') {
@@ -74,6 +76,7 @@ function updateThumbnail(dropZoneElement, file) {
 
         reader.readAsDataURL(file);
         reader.onload = () => {
+            //console.log(reader.result)
             thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
         };
     } else {
@@ -91,7 +94,7 @@ var handleFileSelect = function(evt) {
 
         reader.onload = function(readerEvt) {
             var binaryString = readerEvt.target.result;
-            console.log(btoa(binaryString));
+            base64 = btoa(binaryString)
           
         };
 
@@ -104,3 +107,32 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 } else {
     alert('The File APIs are not fully supported in this browser.');
 }
+
+const url = "http://127.0.0.1:5001/infer"
+$("#yellow-btn").click(function(){
+    outelem = $("#output-img")
+    let formData = new FormData()
+    
+    formData.append('image', base64)
+    for (var key of formData.entries()) {
+        console.log(key[0] + ', ' + key[1]);
+    }
+
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: formData,
+        cache: false,
+        processData: false,
+        contentType: false,
+        error: function(err) {
+            console.log("oops!: ", err)
+        },
+        success: function(data) {
+            console.log("b64 successfully received!")
+            data = data.split('\'')[1]
+            outelem.attr("class", "")
+            outelem.attr("src", 'data:image/jpeg;base64,'+data)
+        }
+    })
+})

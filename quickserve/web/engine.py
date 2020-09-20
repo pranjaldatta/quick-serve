@@ -51,18 +51,27 @@ class ServeWeb(object):
 
         @app.route("/infer", methods=['POST'])
         def run_action_pre_hook():
-            
-            _file = request.files['image'].read()
-            
-            # converting base64 encoding to PIL format 
-            npimage = np.fromstring(_file, np.uint8)
-            img = cv2.imdecode(npimage, cv2.IMREAD_COLOR)
+            #print(request.form['image'])
+            try:
+                _file = request.files['image'].read()
+                
+                # converting base64 encoding to PIL format 
+                npimage = np.fromstring(_file, np.uint8)        
+                img = cv2.imdecode(npimage, cv2.IMREAD_COLOR)
+                img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
-            img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-
-            #print(self.action_input_type)
-            if self.action_input_type == "PIL":
-                img = Image.fromarray(img.astype("uint8"))
+                #print(self.action_input_type)
+                if self.action_input_type == "PIL":
+                    img = Image.fromarray(img.astype("uint8"))
+            
+            except:
+                
+                _file = request.form["image"]
+                img = base64.b64decode(_file)
+                img = Image.open(io.BytesIO(img))
+           
+            if self.action_input_type == "cv2":
+                img = np.array(img)
             
             #pil_img.save("test.jpg")
             
@@ -73,10 +82,14 @@ class ServeWeb(object):
             # if numpy, then convert to uint8 and then to PIL
             if isinstance(result, np.ndarray):
                 result = result.astype(np.uint8)
+                result = cv2.cvtColor(result, cv2.COLOR_RGB2BGR)
                 result = Image.fromarray(result)
+            
             elif isinstance(result, Image.Image):
                 result = np.array(result).astype(np.uint8)
+                result = cv2.cvtColor(result, cv2.COLOR_RGB2BGR)
                 result = Image.fromarray(result)
+            
             else:
                 raise TypeError(f"{type(result)} not supported as return types from inference function")
             
