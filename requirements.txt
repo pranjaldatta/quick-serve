@@ -1,0 +1,6 @@
+flask===1.1.2
+torch==1.6.0+cpu
+torchvision==0.7.0+cpu
+opencv==4.1.1
+pillow==7.2.0
+pyngrok==4.1.12
