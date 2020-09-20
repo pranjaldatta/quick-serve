@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,500;1,700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/b4d1dc5269.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+    
+    <title>QuickServe</title>
+
+</head>
+
+<body>
+    <section id="title">
+        <div class="navcontainer ">
+            <nav class="navbar navbar-expand-lg bg-lg navbar-dark " style="background-color: #455A64;">
+                <a class="navbar-brand" href=" ">
+                    QuickServe</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#footer"> Contact</a></li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#buttons"> Scan</a></li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> Download</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+
+        <div class="container-fluid">
+            <div>
+                <h1 class="mainhead">QuickServe</h1>
+            </div>
+
+            <div class="row row-content align-items-center">
+                <div class="col-12  col-md-9 titlee">
+                    <h1 class="hello"> Hello There!</h1>
+                    <p class="para "> "Here is an exclusive app to quickly serve all your needs in just one click!"</p>
+                    <a href="#buttons" type="button" class="btn yellowbtn">
+                        Get Started</a>
+                </div>
+
+                <div class="col-12  col-md-3 ">
+
+                    <img class=" align-self-center pannaimage "
+                        src="{{url_for('static', filename='assets/images/pannaa-01.png')}}" alt="panna">
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <section id="buttons">
+        <div class="container-fluid">
+
+            <div class="">
+                <h1>App Name</h1>
+            </div>
+
+
+            <div class="col-12 dragdropbutton">
+                <button type="button" id="" class="btn yellowbtn optbtn" onclick="ShowAndHide()">Upload File</button>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="dragsection" style="display:none">
+        <div class="container-fluid ">
+            <div class="row">
+                <div id="draghere" class="col-lg-6 ">
+                    <h1>Input File</h1>
+                    <div class="drop-zone">
+                        <span class="drop-zone__prompt">Drop your file here or click to upload</span>
+                        <input type="file" id="inputFileToLoad" name="myFile" class="drop-zone__input">
+
+                    </div>
+                    <div class="post-btn">
+                        <button id="submit-btn" type="submit" class="btn yellowbtn">Submit</button>
+                    </div>
+                </div>
+
+                <div class="dragged col-lg-6">
+                    <h1>Output </h1>
+                    <div class="outputbox">
+                        <img src="'data:image/jpeg;base64," width="100" height="50" alt="base64 test">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+    <!-- 
+    <div class="base64">
+
+        <textarea id="base64textarea" name="base64" placeholder="Base64 will appear here" cols="50" rows="15"></textarea>
+
+    </div> -->
+
+
+
+    <!-- 
+    <div id="draghere" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-md" role="content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class=" col-11 modal-title text-center">Drag your file here</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="drop-zone">
+                        <span class="drop-zone__prompt">Drop your file here or click to upload</span>
+                        <input type="file" name="myFile" class="drop-zone__input">
+                    </div>
+                
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div> -->
+
+
+
