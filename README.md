@@ -29,7 +29,7 @@ $ pip install .
 ## Authors
 
 * [Aditi Patel](https://github.com/Aditipatel02)
-* Sampada Bareja(https://github.com/sampadabareja)
-* Priyesh Sharan(https://github.com/Priyesh2000)
-* Aniket Sinha(https://github.com/aniketkishore100)
-* Pranjal Datta(https://github.com/pranjaldatta)
+* [Sampada Bareja](https://github.com/sampadabareja)
+* [Priyesh Sharan](https://github.com/Priyesh2000)
+* [Aniket Sinha](https://github.com/aniketkishore100)
+* [Pranjal Datta](https://github.com/pranjaldatta)
