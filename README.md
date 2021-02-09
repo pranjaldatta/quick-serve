@@ -1,6 +1,8 @@
 # quickserve
 
-Quickly build inference engines from jupyter notebooks and deploy on web and edge in 3 lines of code
+Quickly build inference engines from jupyter notebooks and deploy on web and edge in 3 lines of code. 
+
+**[Under development]**
 
 ## Notes regarding getting started
 
